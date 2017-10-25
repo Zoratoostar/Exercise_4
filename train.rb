@@ -18,6 +18,13 @@ class Train
     self.speed = 0
   end
 
+  def hitch_carriage(car)
+    if speed == 0 && (car.class.ancestors.include? Carriage)
+      carriages << car
+      car
+    end
+  end
+
   def unhook_carriage
     if speed == 0 && carriages.length > 0
       carriages.pop
@@ -69,24 +76,6 @@ class Train
   def previous_station
     if current_station_index > 0
       route.stations[current_station_index - 1]
-    end
-  end
-end
-
-class PassengerTrain < Train
-  def hitch_carriage(car)
-    if speed == 0 && car.class == PassengerCarriage
-      carriages << car
-      car
-    end
-  end
-end
-
-class CargoTrain < Train
-  def hitch_carriage(car)
-    if speed == 0 && car.class == FreightWagon
-      carriages << car
-      car
     end
   end
 end
