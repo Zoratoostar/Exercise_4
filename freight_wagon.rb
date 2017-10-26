@@ -8,6 +8,6 @@ class FreightWagon < Carriage
   end
 
   def to_s
-    number + '=' + purpose + '='
+    "#{number}=#{purpose}="
   end
 end

@@ -8,6 +8,6 @@ class PassengerCarriage < Carriage
   end
 
   def to_s
-    number + '::' + seats.to_s + '::'
+    "#{number}::#{seats}::"
   end
 end
